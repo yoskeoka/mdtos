@@ -6,6 +6,7 @@
   "author": "yoskeoka <y.okamoto@gemcook.com>",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint --ext .ts,.json, src/",
     "test": "jest"
   },
   "dependencies": {

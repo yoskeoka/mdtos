@@ -53,6 +53,8 @@ describe("MarkdownLexer class", () => {
           { type: token.Type.TEXT, literal: "ふが" },
         ],
       ];
+
+      expect(ml.lex(input)).toEqual(want);
     });
   });
 });
