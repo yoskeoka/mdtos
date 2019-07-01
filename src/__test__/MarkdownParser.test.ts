@@ -1,4 +1,4 @@
-import { parse } from "../MarkdownParser";
+import { parse, toString } from "../MarkdownParser";
 import { ColumnAlign, DataColumn, HeaderColumn, Table } from "../Table";
 import * as token from "../Token";
 
@@ -28,6 +28,23 @@ describe("MarkdownParser class", () => {
       want.rows = [[new DataColumn("ほげ"), new DataColumn("ふが")]];
 
       expect(parse(input)).toEqual(want);
+    });
+  });
+
+  describe("table.toString()", () => {
+    it("converts table to string", () => {
+      const input = new Table();
+      input.headerColumns = [
+        new HeaderColumn("hoge", ColumnAlign.Left),
+        new HeaderColumn("fuga", ColumnAlign.Left),
+      ];
+      input.rows = [[new DataColumn("ほげ"), new DataColumn("ふが")]];
+
+      const want = `| hoge | fuga |
+| :--- | :--- |
+| ほげ | ふが |`;
+
+      expect(toString(input)).toEqual(want);
     });
   });
 });

@@ -10,6 +10,39 @@ export function parse(tokenBlocks: token.Token[][]): Table {
   return table;
 }
 
+export function toString(table: Table): string {
+  const lines: string[] = [];
+
+  const headerTexts =
+    "| " + table.headerColumns.map(c => c.text).join(" | ") + " |";
+  lines.push(headerTexts);
+
+  const headerAligns =
+    "| " +
+    table.headerColumns.map(c => alignToString(c.align)).join(" | ") +
+    " |";
+  lines.push(headerAligns);
+
+  table.rows.forEach(row =>
+    lines.push("| " + row.map(cell => cell.text).join(" | ") + " |")
+  );
+
+  return lines.join("\n");
+}
+
+function alignToString(align: ColumnAlign): string {
+  switch (align) {
+    case ColumnAlign.Left:
+      return ":---";
+    case ColumnAlign.Center:
+      return ":---:";
+    case ColumnAlign.Right:
+      return "---:";
+    default:
+      return "---";
+  }
+}
+
 function parseHeader(tokenBlocks: token.Token[][]): HeaderColumn[] {
   const headerTexts = tokenBlocks[0];
   const headerAligns = tokenBlocks[1];
