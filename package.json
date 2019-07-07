@@ -10,7 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "marked-ts": "^1.0.0-beta.4",
     "tslib": "^1.10.0"
   },
   "devDependencies": {

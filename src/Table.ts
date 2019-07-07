@@ -1,3 +1,5 @@
+import { MarkdownLexer } from "./MarkdownLexer";
+import * as MarkdownParser from "./MarkdownParser";
 export enum ColumnAlign {
   Left,
   Right,
@@ -29,5 +31,16 @@ export class Table {
   constructor() {
     this.headerColumns = [];
     this.rows = [[]];
+  }
+
+  public static fromMarkdown(input: string): Table {
+    const lexer = new MarkdownLexer();
+    const tokens = lexer.lex(input);
+    const table = MarkdownParser.parse(tokens);
+    return table;
+  }
+
+  public toMarkdown(): string {
+    return MarkdownParser.toString(this);
   }
 }
