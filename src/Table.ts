@@ -1,5 +1,7 @@
 import { MarkdownLexer } from "./MarkdownLexer";
 import * as MarkdownParser from "./MarkdownParser";
+import { SpreadSheetLexer } from "./SpreadSheetLexer";
+import * as SpreadSheetParser from "./SpreadSheetParser";
 export enum ColumnAlign {
   Left,
   Right,
@@ -42,5 +44,16 @@ export class Table {
 
   public toMarkdown(): string {
     return MarkdownParser.toString(this);
+  }
+
+  public static fromSpreadSheet(input: string): Table {
+    const lexer = new SpreadSheetLexer();
+    const tokens = lexer.lex(input);
+    const table = SpreadSheetParser.parse(tokens);
+    return table;
+  }
+
+  public toSpreadSheet(): string {
+    return SpreadSheetParser.toString(this);
   }
 }
