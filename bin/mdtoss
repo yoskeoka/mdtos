@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+//use command "chmod +x [file]" to give executable permission.
+
+require("../lib/cli/mdtoss");
