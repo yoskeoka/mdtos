@@ -8,7 +8,7 @@
     "mdtoss": "bin/mdtoss",
     "sstomd": "bin/sstomd"
   },
-  "repository": "https://github.com/yoskeoka/mdtos",
+  "repository": "https://github.com/yoskeoka/table-converter",
   "author": "yoskeoka <y.okamoto@gemcook.com>",
   "license": "MIT",
   "keywords": [
