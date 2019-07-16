@@ -1,10 +1,10 @@
-# table-conveter
+# table-converter
 
 Markdown Table &lt;---> SpreadSheet Converter
 
 [![Build Status](https://travis-ci.com/yoskeoka/table-converter.svg?branch=master)](https://travis-ci.com/yoskeoka/table-converter)
 
-# インストール
+# Install
 
 ```sh:npm
 npm i -g table-converter
@@ -14,15 +14,15 @@ npm i -g table-converter
 yarn global add table-converter
 ```
 
-# 使い方
+# Usage
 
-## Markdown を SpreadSheet 形式に変換する
+## Convert Markdown Table to SpreadSheet(tsv)
 
 ```sh
 cat example.md | mdtoss
 ```
 
-## SpreadSheet を Markdown 形式に変換する
+## Convert SpreadSheet(tsv) to Markdown
 
 ```sh
 cat example.tsv | sstomd
