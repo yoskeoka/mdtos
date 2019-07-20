@@ -30,10 +30,12 @@
     "build": "npm run clean && tsc --pretty --outDir ./lib"
   },
   "dependencies": {
+    "clipboardy": "^2.1.0",
     "commander": "^2.20.0",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
+    "@types/clipboardy": "^2.0.1",
     "@types/commander": "^2.12.2",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
