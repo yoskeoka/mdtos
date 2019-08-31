@@ -19,8 +19,11 @@ yarn global add table-converter
 ## Auto Convert between Markdown Table and SpreadSheet(tsv)
 
 It tries read from `STDIN` first, then from Clipboard.
+
 If `tconv` detects input table from `STDIN`, it writes the converted result on `STDOUT`.
+
 If the input is from Clipboard, the result will be on Clipboard.
+
 To suppress messages, use `-s` ( `--silent` ) option.
 
 ```sh
