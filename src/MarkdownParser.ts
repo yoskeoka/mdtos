@@ -44,8 +44,20 @@ function alignToString(align: ColumnAlign): string {
 }
 
 function parseHeader(tokenBlocks: token.Token[][]): HeaderColumn[] {
+  if (tokenBlocks.length < 2) {
+    throw new Error("Markdown Table must have 2 lines for header");
+  }
+
   const headerTexts = tokenBlocks[0];
   const headerAligns = tokenBlocks[1];
+  if (headerTexts.length < 2) {
+    throw new Error("Markdown Table must have more than 1 column for header");
+  }
+
+  if (headerTexts.length !== headerAligns.length) {
+    throw new Error("Markdown Table must have same column length for header");
+  }
+
   const colLen = headerTexts.length;
 
   const cols: HeaderColumn[] = [];
@@ -68,6 +80,10 @@ function parseHeader(tokenBlocks: token.Token[][]): HeaderColumn[] {
 }
 
 function parseRows(tokenBlocks: token.Token[][]): DataColumn[][] {
+  if (tokenBlocks.length === 0) {
+    throw new Error("Markdown Table has no rows");
+  }
+
   const rows: DataColumn[][] = [];
 
   for (let ri = 0; ri < tokenBlocks.length; ri++) {

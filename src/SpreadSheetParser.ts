@@ -22,6 +22,10 @@ export function toString(table: Table): string {
 }
 
 function parseHeader(headerTokens: token.Token[]): HeaderColumn[] {
+  if (headerTokens.length < 2) {
+    throw new Error("SpreadSheet must have more than 1 column for header");
+  }
+
   const cols: HeaderColumn[] = [];
 
   for (let headerToken of headerTokens) {
@@ -36,17 +40,17 @@ function parseHeader(headerTokens: token.Token[]): HeaderColumn[] {
 }
 
 function parseRows(tokenBlocks: token.Token[][]): DataColumn[][] {
+  if (tokenBlocks.length === 0) {
+    throw new Error("SpreadSheet has no rows");
+  }
+
   const rows: DataColumn[][] = [];
 
   for (let rowTokens of tokenBlocks) {
     const row: DataColumn[] = [];
 
     for (let cellToken of rowTokens) {
-      const matches = /(.+)/.exec(cellToken.literal);
-      if (matches) {
-        const cellText = matches[0];
-        row.push(new DataColumn(cellText));
-      }
+      row.push(new DataColumn(cellToken.literal));
     }
 
     rows.push(row);

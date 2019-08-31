@@ -6,7 +6,8 @@
   "main": "lib/index.js",
   "bin": {
     "mdtoss": "bin/mdtoss",
-    "sstomd": "bin/sstomd"
+    "sstomd": "bin/sstomd",
+    "tconv": "bin/tconv"
   },
   "repository": "https://github.com/yoskeoka/table-converter",
   "author": "yoskeoka <y.okamoto@gemcook.com>",
@@ -26,7 +27,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "lint": "eslint --ext .ts,.json, src/",
-    "test": "jest",
+    "test": "jest --coverage",
     "build": "npm run clean && tsc --pretty --outDir ./lib"
   },
   "dependencies": {
