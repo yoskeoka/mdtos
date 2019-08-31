@@ -2,7 +2,7 @@
 
 Markdown Table &lt;---> SpreadSheet Converter
 
-[![Build Status](https://travis-ci.com/yoskeoka/table-converter.svg?branch=master)](https://travis-ci.com/yoskeoka/table-converter)
+[![Build Status](https://travis-ci.com/yoskeoka/table-converter.svg?branch=master)](https://travis-ci.com/yoskeoka/table-converter) [![Maintainability](https://api.codeclimate.com/v1/badges/d434f2ae8cad61dac87d/maintainability)](https://codeclimate.com/github/yoskeoka/table-converter/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d434f2ae8cad61dac87d/test_coverage)](https://codeclimate.com/github/yoskeoka/table-converter/test_coverage)
 
 # Install
 
