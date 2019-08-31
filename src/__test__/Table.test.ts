@@ -41,4 +41,46 @@ describe("Table class", () => {
       expect(t.toMarkdown()).toEqual(want);
     });
   });
+
+  describe("#isMarkdown", () => {
+    it("detects Markdown table correctly", () => {
+      const input = `| hoge | fuga |
+      | :--- | :--- |
+      | ほげ | ふが |`;
+      const result = Table.isMarkdown(input);
+
+      expect(result).toBe(true);
+    });
+
+    it("does not detect SpreadSheet as Markdown", () => {
+      const input = `
+      hoge\tfuga
+      ほげ\tふが
+      `;
+      const result = Table.isMarkdown(input);
+
+      expect(result).toBe(false);
+    });
+  });
+
+  describe("#isSpreadSheet", () => {
+    it("detects SpreadSheet correctly", () => {
+      const input = `
+      hoge\tfuga
+      ほげ\tふが
+      `;
+      const result = Table.isSpreadSheet(input);
+
+      expect(result).toBe(true);
+    });
+
+    it("does not detect Markdown as SpreadSheet", () => {
+      const input = `| hoge | fuga |
+      | :--- | :--- |
+      | ほげ | ふが |`;
+      const result = Table.isSpreadSheet(input);
+
+      expect(result).toBe(false);
+    });
+  });
 });

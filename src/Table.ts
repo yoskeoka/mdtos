@@ -46,6 +46,15 @@ export class Table {
     return MarkdownParser.toString(this);
   }
 
+  public static isMarkdown(input: string): boolean {
+    try {
+      Table.fromMarkdown(input);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   public static fromSpreadSheet(input: string): Table {
     const lexer = new SpreadSheetLexer();
     const tokens = lexer.lex(input);
@@ -55,5 +64,14 @@ export class Table {
 
   public toSpreadSheet(): string {
     return SpreadSheetParser.toString(this);
+  }
+
+  public static isSpreadSheet(input: string): boolean {
+    try {
+      Table.fromSpreadSheet(input);
+      return true;
+    } catch {
+      return false;
+    }
   }
 }

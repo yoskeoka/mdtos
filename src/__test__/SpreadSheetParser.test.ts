@@ -25,6 +25,26 @@ describe("SpreadSheetParser class", () => {
 
       expect(parse(input)).toEqual(want);
     });
+
+    it("cannot parse 1 line table", () => {
+      const input: token.Token[][] = [
+        [
+          { type: token.Type.TEXT, literal: "hoge" },
+          { type: token.Type.TEXT, literal: "fuga" },
+        ],
+      ];
+
+      expect(() => parse(input)).toThrow();
+    });
+
+    it("cannot parse 1 column table", () => {
+      const input: token.Token[][] = [
+        [{ type: token.Type.TEXT, literal: "hoge" }],
+        [{ type: token.Type.TEXT, literal: "ほげ" }],
+      ];
+
+      expect(() => parse(input)).toThrow();
+    });
   });
 
   describe("table.toString()", () => {
