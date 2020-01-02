@@ -1,6 +1,7 @@
 .git/
 example/
 .devcontainer/
+src/
 
 # for npm
 node_modules/
